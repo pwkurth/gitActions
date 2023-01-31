@@ -18,7 +18,6 @@ runs:
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
-
     - name: Pass Inputs to Shell
       run: |
         echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
