@@ -13,4 +13,4 @@ jobs:
         id: get_cat_fact
         uses: ./
       - name: Print the cat fact
-        run: scho "${{ steps.get_cat_fact.outputs.cat_fact }}"
+        run: echo "${{ steps.get_cat_fact.outputs.cat_fact }}"
