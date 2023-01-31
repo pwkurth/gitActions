@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Get cat fact
-        id: get_cat_fact
-        uses: ./
-      - name: Print the cat fact
-        run: scho "${{ steps.get_cat_fact.outputs.cat_fact }}"
       - name: Fetch num squared
         id: get_square
         uses: ./ # Uses an action in the root directory
@@ -22,3 +17,14 @@ jobs:
           num: 11
       - name: Print the square
         run: echo "${{ steps.get_square.outputs.num_squared }}"
+  get-cat-fact:
+    runs-on: ubuntu-latest
+    name: Gets a random cat fact
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get cat fact
+        id: get_cat_fact
+        uses: ./
+      - name: Print the cat fact
+        run: scho "${{ steps.get_cat_fact.outputs.cat_fact }}"
