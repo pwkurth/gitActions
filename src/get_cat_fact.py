@@ -14,4 +14,4 @@ if api_data.status_code == 200:
 else:
     print("Error with API")
 
-print(f"::set-output cat=cat_fact::{json_data['fact']}")
+print(f"::set-output name=cat_fact::{json_data['fact']}")
