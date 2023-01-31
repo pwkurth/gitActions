@@ -7,6 +7,9 @@ inputs:
     required: true
     default: "1"
 outputs:
+  cat_fact:
+    description: "Random cat fact"
+    value: ${{ steps.cat-fact.outputs.cat_fact }}
   num_squared:
     description: "Square of the input"
     # need to specify the extra `value` field for `composite` actions
@@ -21,6 +24,10 @@ runs:
     - name: Pass Inputs to Shell
       run: |
         echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
+      shell: bash
+    - name: Get random cat faact
+      id: cat-fact
+      run: python src/get_cat_fact.py
       shell: bash
     - name: Fetch the number's square
       id: get-square
